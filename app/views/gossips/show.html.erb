@@ -1,0 +1,30 @@
+
+<div class='mt-5  mr-auto ml-auto d-flex justify-content-center' style="max-width: 900px;">
+	<div class="card">
+	  <div class="h4 card-header">
+	    <%= @gossip.title %> 
+	  </div>
+	  <div class="card-body">
+	    <p class="card-text"><%= @gossip.content %></p>
+	    <p class="card-text">
+	    	<%= link_to 'De ' + @gossip.user.first_name +  ' ' + @gossip.user.last_name, 
+	    	user_path(@id = @gossip.user_id )%><br />
+
+	    	<%= @gossip.created_at.strftime('%d/%m/%Y  -  %H:%M ') %>
+	    </p>
+
+	    <p class="card-text text-info">
+	    	<% @gossip.tags.each do |tag| %>
+    				#<%= tag.title %>
+    		<% end %>
+    	</p>
+    	<%= link_to "Modifier", edit_gossip_path(@id = @gossip.id), class: "btn btn-outline-secondary" %>
+    	<%= form_tag "/gossips/#{@gossip.id}", method: "delete" do %>
+  		<input type="submit" value="Supprimer le gossip" />
+		<% end %>
+	  </div>
+	</div>
+</div>
+
+<!-- <p>Auteur</p>
+<a href=/users/<%= @gossip.user.id %> -->

@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 800px;">
+
+	<div class="shadow bg-white rounded container bg-light" style="width: 700px;">
+	  <div class="p-4 row">
+	    <div class="col-md-6">
+	      <img src="https://images.pexels.com/photos/971267/pexels-photo-971267.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" class="img-fluid rounded shadow bg-white rounded" alt="photo_profil">
+	    </div>
+
+	    <div class="col-md-6">
+	      <div class="">
+	        <h4 class="mb-4 mt-4 text-primary font-weight-bold"><%= @user.first_name +  ' ' + @user.last_name %>
+	        </h4>
+	        <ul class="list-group list-group-flush">
+  				<li class="list-group-item">Age : <%= @user.age %> ans</li>
+  				<li class="list-group-item">City : 
+  					<%= link_to @user.city.name, city_path(@id = @user.city.id )%>
+  				</li>
+  				<li class="list-group-item">Email : <%= @user.email %></li>
+  				<li class="list-group-item"><%= @user.description %></li>
+  			</ul>
+	        
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+</div>

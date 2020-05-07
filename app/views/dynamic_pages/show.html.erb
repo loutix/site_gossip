@@ -1,0 +1,27 @@
+
+<div class='mt-5  mr-auto ml-auto d-flex justify-content-center' style="max-width: 900px;">
+	<div class="card">
+	  <div class="h4 card-header">
+	    <%= @gossip.title %> 
+	  </div>
+	  <div class="card-body">
+	    <p class="card-text"><%= @gossip.content %></p>
+	    <p class="card-text">
+	    	<%= link_to 'De ' + @gossip.user.first_name +  ' ' + @gossip.user.last_name, 
+	    	show_user_path(@user_id = @gossip.user.id )%><br />
+
+
+	    	<%= @gossip.created_at.strftime('%d/%m/%Y  -  %H:%M ') %>
+	    </p>
+
+	    <p class="card-text text-info">
+	    	<% @gossip.tags.each do |tag| %>
+    				#<%= tag.title %>
+    		<% end %>
+    	</p>
+	  </div>
+	</div>
+</div>
+
+<!-- <p>Auteur</p>
+<a href=/users/<%= @gossip.user.id %> -->

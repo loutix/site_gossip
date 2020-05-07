@@ -1,0 +1,15 @@
+<!-- <form action= <%= gossip_path %> method="PUT">
+      <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+      <input type="text" name="gossip_title" value="@gossip.title">
+      <input type="text" name="gossip_text">@gossip.content</input>
+      <input type="submit" value="Valider">
+
+</form> -->
+
+<%= form_for @gossip, url: {action: "update"} do |f| %>
+  <%= f.label "Titre" %>
+  <%= f.text_field :title %>
+  <%= f.label "Contenu" %>
+  <%= f.text_area :content %>
+  <%= f.submit "Modifier" %>
+<% end %>

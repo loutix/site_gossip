@@ -1,0 +1,34 @@
+<div style='margin-left: 10rem; margin-top: 3rem;'>
+	
+	<p class='h2 text-white'>Salut <%= @first_name %>, voici les derniers potins</p>
+    <p class='h3 text-white'>Tu peux laisser un nouveau pottin ici  
+   
+  
+    <%= link_to "new potin", new_gossip_path(), class: "btn btn-primary text-white rounded-pill" %>
+    </p>
+   
+
+
+</div>
+
+<div class='mb-5 ml-auto mr-auto' style='max-width: 960px;'>
+	<% @gossip.each do |gossip| %>
+		<div class="card mt-5 ml-auto mr-auto border-primary rounded-lg" style="width: 35rem;">
+  			<div class="card-body">
+    			<h5 class="card-title"><%= gossip.title %></h5>
+    			<p class="card-text">From <%= gossip.user.first_name %>, <%= gossip.user.last_name %><br/>
+    			<span class='text-muted'>			
+    			<% gossip.tags.each do |tag| %>
+    				#<%= tag.title %>
+    			<% end %>
+    			</span>
+    			</p>
+    			
+    			<%= link_to "la suite", gossip_path(@id = gossip.id), class: "btn btn-primary text-white rounded-pill" %>
+  			</div>
+		</div>
+
+	<% end %>
+
+</div>
+
